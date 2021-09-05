@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    # env_file:
+    #   - .env
+    environment:
+      RACK_ENV: development
+      RAILS_ENV: development
+      DB_HOSTNAME: db
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+      - rails_cache:/app/tmp/cache
+      # exclude volumes below
+      - /app/.git
+      - /app/vendor
+      - /app/tmp
+      - /app/log
+    depends_on:
+      - db
+    ports:
+      - ${PORT:-3000}:3000
+    tty: true
+    stdin_open: true
+
+  db:
+    # image: mysql:8.0
+    image: mysql/mysql-server:8.0
+    command: ["--bind-address=0.0.0.0"]
+    platform: linux/x86_64
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - ${DB_PORT:-3306}:3306
+
+volumes:
+  bundle:
+  rails_cache:
+  db_data:
