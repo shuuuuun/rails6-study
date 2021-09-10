@@ -1,4 +1,4 @@
-FROM ruby:3.0-alpine
+FROM ruby:3.0.2-alpine
 
 ENV LANG C.UTF-8
 ENV TZ Asia/Tokyo
@@ -25,8 +25,8 @@ RUN set -ex \
 
 WORKDIR /app
 
-COPY Gemfile* /app/
-RUN bundle install --jobs=2
+# COPY Gemfile* /app/
+# RUN bundle install --jobs=2
 
 # COPY app /app/app
 # COPY bin /app/bin
