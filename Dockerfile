@@ -44,7 +44,5 @@ WORKDIR /app
 COPY . /app
 
 EXPOSE ${PORT}
-# CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
-CMD ["bundle", "exec", "falcon", "serve", "--bind", "0.0.0.0", "--port", "${PORT}"]
-# CMD ["bundle", "exec", "rackup", "--server", "falcon", "--port", "${PORT}"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
 # CMD ["/app/bin/start"]
