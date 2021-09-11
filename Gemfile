@@ -7,8 +7,11 @@ ruby '3.0.2'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.5'
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
+
+# App server
+# gem 'puma', '~> 5.0'
+gem 'falcon'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
