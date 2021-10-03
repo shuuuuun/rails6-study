@@ -35,3 +35,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'sassc-rails'
 gem 'devise'
 gem 'activeadmin'
+# gem 'activeadmin-menu_tree', path: 'vendor/activeadmin-menu_tree'
+gem 'activeadmin-menu_tree'
