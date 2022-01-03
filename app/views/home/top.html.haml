@@ -1,4 +1,9 @@
 - if logged_in?
   = link_to 'Logout', logout_path
 - else
-  = link_to 'LINE Login', '/auth/line'
+  -# = link_to 'LINE Login', '/auth/line'
+  = button_to 'LINE Login', '/auth/line'
+
+  -# %a(href='/auth/developer') Login with Developer
+  = form_tag('/auth/developer', method: 'post') do
+    %button(type='submit') Login with Developer
